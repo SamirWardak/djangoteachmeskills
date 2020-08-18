@@ -1,0 +1,27 @@
+{#<form action="/registration/" method="post">#}
+{#    {% csrf_token %}#}
+{#    {{ form }}#}
+{#    <input type="submit">#}
+{#</form>#}
+
+<form action="/registration/" method="post">
+    {% csrf_token %}
+<div class="fieldWrapper">
+    <label for="{{ form.user_name.id_for_label }}">User name:</label>
+    {{ form.user_name }}
+</div>
+<div class="fieldWrapper">
+    <label for="{{ form.email_id.id_for_label }}">Email id:</label>
+    {{ form.email_id }}
+</div>
+<div class="fieldWrapper">
+    <label for="{{ form.password.id_for_label }}">password?</label>
+    {{ form.password }}
+</div>
+<div class="fieldWrapper">
+    <label for="{{ form.password_retype.id_for_label }}">password retype?</label>
+    {{ form.password_retype }}
+</div>
+    <input type="submit" value="Submit" />
+    <input type="reset" value="Reset" />
+</form>

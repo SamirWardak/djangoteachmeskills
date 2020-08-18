@@ -1,0 +1,33 @@
+.carousel{
+    width: 80%;
+    left: 10%;
+    right: 10%;
+}
+
+.carousel:hover{
+    opacity: 0.5;
+}
+
+.linker, a, .test{
+    font-size: 21px;
+    color: black;
+    display: block;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+.mainer{
+    display: block;
+    text-align: center;
+}
+
+.carousel-item{
+    max-height: 400px;
+    background-size: cover;
+}

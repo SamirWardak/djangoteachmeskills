@@ -1,0 +1,21 @@
+{#<form action="/name/" method="post">#}
+{#    {% csrf_token %}#}
+{#    {{ form }}#}
+{#</form>#}
+
+<form action="/name/" method="post">
+    {% csrf_token %}
+<div class="fieldWrapper">
+    <label for="{{ form.your_name.id_for_label }}">Name:</label>
+    {{ form.your_name }}
+</div>
+<div class="fieldWrapper">
+    <label for="{{ form.numbers.id_for_label }}">Number:</label>
+    {{ form.numbers }}
+</div>
+<div class="fieldWrapper">
+    <label for="{{ form.url.id_for_label }}">URL?</label>
+    {{ form.url }}
+</div>
+    <input type="submit" value="Submit" />
+</form>
