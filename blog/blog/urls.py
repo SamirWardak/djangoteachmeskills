@@ -24,7 +24,8 @@ from article.views import (
     GetView,
     BootStrapView,
     get_name,
-    RegistrationView
+    RegistrationView,
+    ImageView
 )
 
 
@@ -35,4 +36,5 @@ urlpatterns = [
     url(r'^gallery/$', BootStrapView.as_view(), name='my-BootStrapView'),
     url(r'^name/$', get_name.as_view(), name='get_name'),
     url(r'^registration/$', RegistrationView.as_view(), name='registration'),
+    url(r'^image/$', ImageView.as_view(), name='image'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,3 +1,5 @@
+import datetime
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
@@ -6,7 +8,7 @@ from django.http import HttpResponseRedirect
 
 from .models import News
 from customer.models import Profile
-from .forms import NameForm, RegistrationForm
+from .forms import NameForm, RegistrationForm, ImageForm
 
 class NewsView(TemplateView):
     template_name = "index.html"
@@ -85,7 +87,22 @@ class RegistrationView(View):
         return HttpResponse("error", content_type="text/plain")
 
 
+class ImageView(View):
+    template_name = 'image.html'
 
+    def get(self, request):
+        form = ImageForm()
+        return render(request, self.template_name, {'form': form})
+
+
+    def post(self, request):
+        form = ImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            img = form.cleaned_data.get("image")
+            name = form.cleaned_data.get("name")
+            News.objects.create(name=name, create_date="2020-02-02", image=img, file=img)
+            return HttpResponse("Ok", content_type="text/plain")
+        return HttpResponse("error", content_type="text/plain")
 
 
 

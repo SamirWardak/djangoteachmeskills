@@ -12,3 +12,8 @@ class RegistrationForm(forms.Form):
     email_id = forms.EmailField(label='Email ID')
     password = forms.CharField(widget=forms.PasswordInput)
     password_retype = forms.CharField(widget=forms.PasswordInput)
+
+
+class ImageForm(forms.Form):
+    image = forms.FileField()
+    name = forms.CharField(max_length=255)
