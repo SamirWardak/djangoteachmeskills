@@ -6,7 +6,6 @@ class NameForm(forms.Form):
     url = forms.URLField(label='url')
 
 
-
 class RegistrationForm(forms.Form):
     user_name = forms.CharField(label='User name', max_length=100)
     email_id = forms.EmailField(label='Email ID')
@@ -15,5 +14,4 @@ class RegistrationForm(forms.Form):
 
 
 class ImageForm(forms.Form):
-    image = forms.FileField()
-    name = forms.CharField(max_length=255)
+    image = forms.ImageField()

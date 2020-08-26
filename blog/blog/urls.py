@@ -25,8 +25,14 @@ from article.views import (
     BootStrapView,
     get_name,
     RegistrationView,
-    ImageView
+    ImageView,
+
+    ContactFormView,
+    NewsRestView,
+    NewsSingleRestView
 )
+
+from customer.views import ProfileView
 
 
 urlpatterns = [
@@ -35,6 +41,15 @@ urlpatterns = [
     url(r'^mine1/$', GetView.as_view(), name='my-viewl'),
     url(r'^gallery/$', BootStrapView.as_view(), name='my-BootStrapView'),
     url(r'^name/$', get_name.as_view(), name='get_name'),
-    url(r'^registration/$', RegistrationView.as_view(), name='registration'),
+    # url(r'^registration/$', RegistrationView.as_view(), name='registration'),
     url(r'^image/$', ImageView.as_view(), name='image'),
+
+    url(r'^api/contact/$', ContactFormView.as_view(), name='contact-form'),
+    url(r'^api/news/$', NewsRestView.as_view(), name='news-sert-views'),
+    url('api/news/(?P<id>.+)/$', NewsSingleRestView.as_view(), name="sigle-news-object"),
+    # url('id/(?P<id>.+)/code/(?P<code>.+)/$', NewsSingleRestView.as_view(), name="sigle-news-object")
+
+url('api/register/$', ProfileView.as_view(), name="profile"),
+url('api/activate/(?P<activate_code>.+)$', ProfileView.as_view(), name="profile")
+
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -10,6 +10,7 @@ USER_TYPE = [
 
 class Profile(AbstractUser):
     type = models.CharField(max_length=255, choices=USER_TYPE, default='user')
+    activate_code = models.CharField(max_length=255)
     pass
 
 # Create your models here.
